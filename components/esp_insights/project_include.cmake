@@ -20,10 +20,10 @@ add_custom_command(
         -D PROJ_CONFIG_FILE=${PROJ_BUILD_CONFIG_FILE}
         -D PARTITION_CSV_FILE=${CONFIG_PARTITION_TABLE_CUSTOM_FILENAME}
         -P ${CMAKE_CURRENT_LIST_DIR}/scripts/gen_tar_dir.cmake
-        COMMAND ${CMAKE_COMMAND} -E echo "===================== Generating insights firmware package build/${ARCHIVE_NAME}.zip ======================"
-        COMMAND ${CMAKE_COMMAND} -E tar cfv ${ARCHIVE_NAME}.zip ${ARCHIVE_NAME} --format=zip
-        COMMAND ${CMAKE_COMMAND} -E remove_directory ${ARCHIVE_NAME}
-        COMMAND ${CMAKE_COMMAND} -E remove ${PROJ_BUILD_CONFIG_FILE}
+        COMMAND ${CMAKE_COMMAND} -E echo "===================== Generating insights firmware package ${build_dir}/${ARCHIVE_NAME}.zip ======================"
+        COMMAND ${CMAKE_COMMAND} -E tar cfv ${ARCHIVE_NAME}.zip ${build_dir}/${ARCHIVE_NAME} --format=zip
+        COMMAND ${CMAKE_COMMAND} -E remove_directory ${build_dir}/${ARCHIVE_NAME}
+        COMMAND ${CMAKE_COMMAND} -E remove ${build_dir}/${PROJ_BUILD_CONFIG_FILE}
         VERBATIM
 )
 endif()
